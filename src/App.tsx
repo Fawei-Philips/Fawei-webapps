@@ -1,47 +1,25 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
-import { RabbitMQProvider } from './contexts/RabbitMQContext';
-import ProtectedRoute from './components/common/ProtectedRoute';
-import Navigation from './components/common/Navigation';
-import LoginPage from './pages/LoginPage';
-import GalleryPage from './pages/GalleryPage';
-import UploadPage from './pages/UploadPage';
-import HistoryPage from './pages/HistoryPage';
-import UserProfile from './pages/UserProfile';
+import React from 'react';
+import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <Router>
-      <AuthProvider>
-        <RabbitMQProvider>
-          <div className="app">
-            <Routes>
-              <Route path="/login" element={<LoginPage />} />
-              <Route
-                path="/*"
-                element={
-                  <ProtectedRoute>
-                    <div className="app-layout">
-                      <Navigation />
-                      <main className="app-main">
-                        <Routes>
-                          <Route path="/" element={<GalleryPage />} />
-                          <Route path="/upload" element={<UploadPage />} />
-                          <Route path="/history" element={<HistoryPage />} />
-                          <Route path="/profile" element={<UserProfile />} />
-                          <Route path="*" element={<Navigate to="/" replace />} />
-                        </Routes>
-                      </main>
-                    </div>
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
-          </div>
-        </RabbitMQProvider>
-      </AuthProvider>
-    </Router>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
