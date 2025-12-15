@@ -3,7 +3,7 @@ import type { ImageInfo, PaginatedResponse, ApiResponse } from '../types';
 import { API_ENDPOINTS } from '../utils/config';
 
 export const imageService = {
-  getImages: async (page: number = 1, pageSize: number = 20, filters?: any): Promise<PaginatedResponse<ImageInfo>> => {
+  getImages: async (page: number = 1, pageSize: number = 20, filters?: Record<string, unknown>): Promise<PaginatedResponse<ImageInfo>> => {
     const params = {
       page,
       pageSize,
@@ -29,7 +29,7 @@ export const imageService = {
     throw new Error(response.data.message || 'Failed to fetch image');
   },
 
-  uploadImage: async (file: File, promptText: string, metadata?: any): Promise<ImageInfo> => {
+  uploadImage: async (file: File, promptText: string, metadata?: Record<string, unknown>): Promise<ImageInfo> => {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('promptText', promptText);

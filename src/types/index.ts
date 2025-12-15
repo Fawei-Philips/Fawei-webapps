@@ -17,7 +17,7 @@ export interface ImageInfo {
   uploadedBy: string;
   uploadedAt: string;
   promptText?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   tags?: string[];
   status?: 'processing' | 'completed' | 'failed';
 }
@@ -26,7 +26,7 @@ export interface ImageInfo {
 export interface UploadRequest {
   file?: File;
   promptText: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 export interface UploadHistory {
@@ -72,6 +72,6 @@ export interface PaginatedResponse<T> {
 // WebSocket message types
 export interface RealTimeUpdate {
   type: 'image_processed' | 'upload_progress' | 'status_update';
-  payload: any;
+  payload: unknown;
   timestamp: string;
 }
